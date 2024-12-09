@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "362175859910",
+    "project_id": "amir-nagy-96cd6",
+    "storage_bucket": "amir-nagy-96cd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362175859910:android:130588849f934646f0dbc7",
+        "android_client_info": {
+          "package_name": "com.amir.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362175859910-8qhc78ehdgkaa6vjjvv8p4rlupkpde81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqjGtrVDX_iuX8ss7yR5wXDaVwojoG-pU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362175859910-8qhc78ehdgkaa6vjjvv8p4rlupkpde81.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "362175859910-c96689baa7cckhhhaf9tutc96pc4kffc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.amir.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
