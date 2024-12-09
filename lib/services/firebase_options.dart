@@ -41,46 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCjATLnaryKYLhOGaOMREhiYHQeErKtSTs',
-    appId: '1:362175859910:web:adc05b1ca97a58f4f0dbc7',
-    messagingSenderId: '362175859910',
-    projectId: 'amir-nagy-96cd6',
-    authDomain: 'amir-nagy-96cd6.firebaseapp.com',
-    storageBucket: 'amir-nagy-96cd6.appspot.com',
+    apiKey: 'AIzaSyCEOrKvHiw9rm8diCUcAmleR3JS4duOPnw',
+    appId: '1:532432873470:web:e4e19f8981bcfcea0282af',
+    messagingSenderId: '532432873470',
+    projectId: 'el-prof-de416',
+    authDomain: 'el-prof-de416.firebaseapp.com',
+    storageBucket: 'el-prof-de416.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDqjGtrVDX_iuX8ss7yR5wXDaVwojoG-pU',
-    appId: '1:362175859910:android:130588849f934646f0dbc7',
-    messagingSenderId: '362175859910',
-    projectId: 'amir-nagy-96cd6',
-    storageBucket: 'amir-nagy-96cd6.appspot.com',
+    apiKey: 'AIzaSyBazXXGcSeJCm3vRJL4aIQ36w-NnkEyotY',
+    appId: '1:532432873470:android:62d0d4d05eca47120282af',
+    messagingSenderId: '532432873470',
+    projectId: 'el-prof-de416',
+    storageBucket: 'el-prof-de416.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDAJmbSNnFTcgQ30CiRKO-blTDzUJckCrc',
-    appId: '1:362175859910:ios:60cd44214f616554f0dbc7',
-    messagingSenderId: '362175859910',
-    projectId: 'amir-nagy-96cd6',
-    storageBucket: 'amir-nagy-96cd6.appspot.com',
-    iosBundleId: 'com.amir.app',
+    apiKey: 'AIzaSyBj2ggR1M2DSmAdVHWi5LJpAr2OQkrq1hs',
+    appId: '1:532432873470:ios:44ef0cd49808c7720282af',
+    messagingSenderId: '532432873470',
+    projectId: 'el-prof-de416',
+    storageBucket: 'el-prof-de416.appspot.com',
+    iosBundleId: 'com.prof.app',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDAJmbSNnFTcgQ30CiRKO-blTDzUJckCrc',
-    appId: '1:362175859910:ios:60cd44214f616554f0dbc7',
-    messagingSenderId: '362175859910',
-    projectId: 'amir-nagy-96cd6',
-    storageBucket: 'amir-nagy-96cd6.appspot.com',
-    iosBundleId: 'com.amir.app',
+    apiKey: 'AIzaSyBj2ggR1M2DSmAdVHWi5LJpAr2OQkrq1hs',
+    appId: '1:532432873470:ios:44ef0cd49808c7720282af',
+    messagingSenderId: '532432873470',
+    projectId: 'el-prof-de416',
+    storageBucket: 'el-prof-de416.appspot.com',
+    iosBundleId: 'com.prof.app',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCjATLnaryKYLhOGaOMREhiYHQeErKtSTs',
-    appId: '1:362175859910:web:675a531393d17d4af0dbc7',
-    messagingSenderId: '362175859910',
-    projectId: 'amir-nagy-96cd6',
-    authDomain: 'amir-nagy-96cd6.firebaseapp.com',
-    storageBucket: 'amir-nagy-96cd6.appspot.com',
+    apiKey: 'AIzaSyCEOrKvHiw9rm8diCUcAmleR3JS4duOPnw',
+    appId: '1:532432873470:web:db7bdf65d9fd85ee0282af',
+    messagingSenderId: '532432873470',
+    projectId: 'el-prof-de416',
+    authDomain: 'el-prof-de416.firebaseapp.com',
+    storageBucket: 'el-prof-de416.appspot.com',
   );
 }

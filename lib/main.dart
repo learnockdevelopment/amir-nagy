@@ -1,43 +1,33 @@
 import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+// import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_android_developer_mode/flutter_android_developer_mode.dart';
 import 'package:amir/pages/warning.dart';
-import 'package:googleapis/cloudbuild/v1.dart';
 import 'package:root_checker_plus/root_checker_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:amir/pages/splash.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeApp();
-  }
+}
 
 Future<void> initializeApp() async {
-  await screenRestrictions();
+  // await screenRestrictions();
   bool isEmulator = await checkIfEmulator();
-  bool isDeveloperModeEnabled = await checkIfDeveloperModeEnabled();
   bool isRooted = await checkIfRooted();
-  String currentVersion = await getAppVersion();
-  const String minRequiredVersion = '1.0.3';
-  bool isVersionValid = isVersionSupported(currentVersion, minRequiredVersion);
 
   runApp(MyApp(
     isEmulator: isEmulator,
-    isDeveloperModeEnabled: isDeveloperModeEnabled,
     isRooted: isRooted,
-    isVersionValid: isVersionValid,
   ));
 }
 
-Future<void> screenRestrictions() async {
-  await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
-}
+// Future<void> screenRestrictions() async {
+//   await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+// }
 
 Future<bool> checkIfEmulator() async {
   final deviceInfo = DeviceInfoPlugin();
@@ -88,22 +78,18 @@ bool isVersionSupported(String currentVersion, String minRequiredVersion) {
 
 class MyApp extends StatelessWidget {
   final bool isEmulator;
-  final bool isDeveloperModeEnabled;
   final bool isRooted;
-  final bool isVersionValid;
 
   const MyApp({
     Key? key,
     required this.isEmulator,
-    required this.isDeveloperModeEnabled,
     required this.isRooted,
-    required this.isVersionValid,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Amir Nagy',
+      title: 'ُAmir Nagy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.yellow,
@@ -113,8 +99,8 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _getHomePage() {
-    if (isEmulator || isRooted || !isVersionValid) {
-      return SplashScreen(); 
+    if (isEmulator || isRooted) {
+      return WarningPage(); // Show WarningPage for invalid conditions
     } else {
       return SplashScreen();
     }

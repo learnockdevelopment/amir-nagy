@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:io'; // For Platform checks
 
 class WarningPage extends StatefulWidget {
   const WarningPage({Key? key}) : super(key: key);
@@ -9,84 +10,95 @@ class WarningPage extends StatefulWidget {
 }
 
 class _WarningPageState extends State<WarningPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  // Function to open system or app settings based on platform
+  Future<void> _openSettings() async {
+    final String url = Platform.isAndroid
+        ? 'app-settings:' // Android specific URL scheme for settings
+        : 'App-Prefs:'; // iOS specific URL scheme for app settings
 
-  void _closeApp() {
-    SystemNavigator.pop(); // Close the app
+    // Check if the URL can be launched and launch it
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      // If URL can't be launched, show an error message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('تعذر فتح الإعدادات')),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.yellow.shade500, Colors.black],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+      body: Directionality(
+        textDirection: TextDirection.rtl, // Apply RTL direction
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.red.shade900, Colors.black],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
-        ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/error.png',
-                  width: 250,
-                  height: 250,
-                ),
-                const SizedBox(height: 30),
-                Text(
-                  'Error',
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 1.5,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/error.png',
+                    width: 250,
+                    height: 250,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  'This error may be caused by:\n'
-                      '1. Using an emulator.\n'
-                      '2. Using rooted devices.\n'
-                      '3. Running an outdated app version.\n\n'
-                      'Please check and resolve any of the above issues. For further assistance, contact us at:\n'
-                      'learnock@gmail.com',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.grey.shade300,
-                    height: 1.5,
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: _closeApp,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                    backgroundColor: Colors.yellow.shade700,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                  ),
-                  child: Text(
-                    'Close App',
+                  const SizedBox(height: 30),
+                  Text(
+                    'خطأ',
                     style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
+                      fontSize: 36,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'قد يكون هذا الخطأ ناتجًا عن:\n'
+                    '- استخدام المحاكي.\n'
+                    '- استخدام جهاز مُهكر.\n'
+                    'يرجى التحقق وحل أي من المشاكل المذكورة. للحصول على مزيد من المساعدة، اتصل بنا على:\n'
+                    'learnock@gmail.com',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.grey.shade300,
+                      height: 1.5,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: _openSettings, // Call to open settings
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 15),
+                      backgroundColor: Colors.orangeAccent.shade700,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
+                    child: Text(
+                      'الذهاب إلى الإعدادات',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
